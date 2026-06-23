@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bạn có đang thiếu nền tảng Marketing? | Tomorrow Marketers</title>
+    <style>
+        /* ============================================
+           CONFIG & VARIABLES
+           ============================================ */
+        :root {
+            --primary: #DD2674;
+            --primary-light: #f5e6f0;
+            --accent: #FFC960;
+            --text-primary: #1F1F1F;
+            --text-secondary: #666666;
+            --bg-main: #FAFAFC;
+            --bg-white: #FFFFFF;
+            --border: #E8E8E8;
+            --success: #2E7D32;
+            --error: #C62828;
+            
+            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Be Vietnam Pro', sans-serif;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 48px;
+            
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           HEADER
+           ============================================ */
+        .header {
+            position: sticky;
+            top: 0;
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            backdrop-filter: blur(4px);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-md) var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--spacing-lg);
+        }
+
+        .header-brand {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+        }
+
+        .header-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .header-nav a:hover {
+            color: var(--primary);
+        }
+
+        .btn-header {
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: opacity 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-header:hover {
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .header-nav {
+                flex-direction: column;
+                align-items: flex-end;
+                gap: var(--spacing-md);
+            }
+            
+            .header-nav a {
+                font-size: 13px;
+            }
+        }
+
+        /* ============================================
+           MAIN CONTAINER
+           ============================================ */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--spacing-xl) var(--spacing-lg);
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .hero-title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.3;
+            color: var(--text-primary);
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.7;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+
+        .hero-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 4px;
+            height: 4px;
+            background: var(--text-secondary);
+            border-radius: 50%;
+        }
+
+        .cta-primary {
+            background: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .cta-primary:hover {
+            opacity: 0.9;
+        }
+
+        .cta-note {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: var(--spacing-md);
+        }
+
+        /* ============================================
+           INTRO SCREEN
+           ============================================ */
+        .intro-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-2xl);
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            border: 1px solid var(--border);
+        }
+
+        .intro-card h2 {
+            font-size: 28px;
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.4;
+        }
+
+        .intro-card p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* ============================================
+           QUIZ SCREEN
+           ============================================ */
+        .quiz-container {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-2xl);
+            border: 1px solid var(--border);
+        }
+
+        .progress-bar {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .progress-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+            font-weight: 500;
+        }
+
+        .progress-fill {
+            width: 100%;
+            height: 4px;
+            background: var(--border);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill-inner {
+            height: 100%;
+            background: var(--primary);
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        .question-group {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .question-number {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .question-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xl);
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .option {
+            padding: var(--spacing-lg);
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.2s;
+            background: var(--bg-white);
+        }
+
+        .option:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .option input[type="radio"] {
+            margin-right: var(--spacing-md);
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+
+        .option label {
+            cursor: pointer;
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            font-size: 15px;
+        }
+
+        .option input[type="radio"]:checked + label {
+            font-weight: 600;
+        }
+
+        .option.selected {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .quiz-nav {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: space-between;
+            margin-top: var(--spacing-xl);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-light);
+        }
+
+        .btn-secondary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* ============================================
+           RESULT SCREEN
+           ============================================ */
+        .result-container {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-2xl);
+            border: 1px solid var(--border);
+        }
+
+        .result-score {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+            padding-bottom: var(--spacing-2xl);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .result-score-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .result-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.4;
+            color: var(--text-primary);
+        }
+
+        .result-body {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .gap-card {
+            background: var(--primary-light);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .gap-card-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: var(--spacing-md);
+            font-size: 14px;
+        }
+
+        .gap-card-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .result-cta {
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        /* ============================================
+           LEAD FORM
+           ============================================ */
+        .lead-form-section {
+            background: var(--primary-light);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-2xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .lead-form-section h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+        }
+
+        .lead-form-section p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .btn-form {
+            background: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            width: 100%;
+        }
+
+        .btn-form:hover {
+            opacity: 0.9;
+        }
+
+        /* ============================================
+           ACCORDION / ANSWERS
+           ============================================ */
+        .answers-section {
+            margin-top: var(--spacing-2xl);
+        }
+
+        .answers-section h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .accordion-item {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-md);
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-lg);
+            background: var(--bg-main);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .accordion-header:hover {
+            background: #f0f0f0;
+        }
+
+        .accordion-title {
+            font-weight: 600;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .accordion-status {
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .accordion-status.correct {
+            color: var(--success);
+        }
+
+        .accordion-status.incorrect {
+            color: var(--error);
+        }
+
+        .accordion-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .accordion-item.open .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            padding: var(--spacing-lg);
+            background: var(--bg-white);
+            display: none;
+        }
+
+        .accordion-item.open .accordion-content {
+            display: block;
+        }
+
+        .answer-question {
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+        }
+
+        .answer-correct {
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .answer-correct-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--success);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .answer-correct-text {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .answer-explanation {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .answer-explanation-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer-section {
+            background: var(--text-primary);
+            color: white;
+            padding: var(--spacing-2xl) var(--spacing-lg);
+            text-align: center;
+            margin-top: var(--spacing-2xl);
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-text {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: var(--spacing-xl);
+            opacity: 0.9;
+        }
+
+        .footer-cta {
+            background: var(--primary);
+            color: white;
+            padding: 12px 28px;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .footer-cta:hover {
+            opacity: 0.9;
+        }
+
+        .footer-brand {
+            margin-top: var(--spacing-xl);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        /* ============================================
+           UTILITY
+           ============================================ */
+        .hidden {
+            display: none;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-xl {
+            margin-top: var(--spacing-xl);
+        }
+
+        .mb-lg {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--spacing-lg) var(--spacing-md);
+            }
+
+            .hero-title {
+                font-size: 28px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+            }
+
+            .quiz-container,
+            .intro-card,
+            .result-container {
+                padding: var(--spacing-lg);
+            }
+
+            .result-score-number {
+                font-size: 36px;
+            }
+
+            .result-title {
+                font-size: 22px;
+            }
+
+            .question-title {
+                font-size: 18px;
+            }
+
+            .footer-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="header-brand">Tomorrow Marketers</a>
+            <nav class="header-nav">
+                <a href="#" onclick="scrollToSection('result'); return false;">Marketing Foundation</a>
+                <button class="btn-header" onclick="goToCourse()">Tìm hiểu khóa học</button>
+                <button class="btn-header" id="resetBtn" onclick="resetQuiz()" style="background: #666; display: none;">↻ Làm lại</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <div class="container">
+        <!-- HERO SECTION -->
+        <section id="hero" class="hero">
+            <h1 class="hero-title">Bạn có đang thiếu nền tảng Marketing?</h1>
+            <p class="hero-subtitle">15 tình huống ngắn để kiểm tra xem bạn đã có tư duy Marketing bài bản, hay mới chỉ đang biết một vài đầu việc như content, ads hoặc social media.</p>
+            <div class="hero-meta">
+                <span><strong>15 câu hỏi</strong></span>
+                <span class="dot"></span>
+                <span><strong>Khoảng 3 phút</strong></span>
+                <span class="dot"></span>
+                <span><strong>Mỗi câu chỉ có 1 đáp án đúng</strong></span>
+            </div>
+            <button class="cta-primary" onclick="startQuiz()">Bắt đầu làm test</button>
+            <p class="cta-note">Không cần để lại thông tin trước khi làm bài.</p>
+        </section>
+
+        <!-- INTRO SCREEN -->
+        <section id="intro" class="intro-card hidden">
+            <h2>Bài test này không kiểm tra bạn nhớ bao nhiêu thuật ngữ</h2>
+            <p>Marketing không bắt đầu từ việc nghĩ content gì, chọn KOL nào hay chạy ads ở đâu.</p>
+            <p>Một marketer có nền tảng cần biết cách đi từ vấn đề kinh doanh, khách hàng, chiến lược đến hoạt động và chỉ số đo lường.</p>
+            <p>Hãy chọn phương án bạn cho là hợp lý nhất trong từng tình huống.</p>
+            <button class="cta-primary" onclick="startFirstQuestion()" style="margin-top: var(--spacing-xl);">Bắt đầu câu 1</button>
+        </section>
+
+        <!-- QUIZ SCREEN -->
+        <section id="quiz" class="quiz-container hidden">
+            <div class="progress-bar">
+                <div class="progress-text" id="progressText">Câu 1 / 15</div>
+                <div class="progress-fill">
+                    <div class="progress-fill-inner" id="progressFill"></div>
+                </div>
+            </div>
+
+            <div id="questionContent"></div>
+
+            <div class="quiz-nav">
+                <button class="btn-secondary" id="btnPrev" onclick="prevQuestion()" disabled>← Câu trước</button>
+                <button class="btn-secondary" id="btnNext" onclick="nextQuestion()">Tiếp tục →</button>
+            </div>
+        </section>
+
+        <!-- RESULT SCREEN -->
+        <section id="result" class="result-container hidden">
+            <div class="result-score">
+                <div class="result-score-number" id="finalScore">0/15</div>
+            </div>
+            <div id="resultContent"></div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section id="ctaSection" class="lead-form-section hidden">
+            <h3>Nhận lộ trình học Marketing phù hợp với nền tảng hiện tại của bạn</h3>
+            <p>Tìm hiểu Marketing Foundation in the AI Era và khám phá lộ trình học phù hợp với mục tiêu của bạn.</p>
+            <button class="btn-form" onclick="goToCourse()" style="margin-top: var(--spacing-lg);">Tìm hiểu Marketing Foundation</button>
+        </section>
+
+        <!-- ANSWERS SECTION -->
+        <section id="answers" class="answers-section hidden">
+            <h3>Xem đáp án và giải thích</h3>
+            <div id="answersContent"></div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer-section" id="footer" style="display: none;">
+        <div class="footer-content">
+            <h3 class="footer-title">Nền tảng Marketing không phải là học thuộc framework</h3>
+            <p class="footer-text">Đó là khả năng biết phải bắt đầu từ đâu, chọn câu hỏi nào, đưa ra quyết định gì và giải thích được logic phía sau mỗi hoạt động Marketing.</p>
+            <button class="footer-cta" onclick="goToCourse()">Tìm hiểu Marketing Foundation in the AI Era</button>
+            <div class="footer-brand">Tomorrow Marketers</div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // CONFIG
+        // ============================================
+        const CONFIG = {
+            COURSE_URL: "https://www.tomorrowmarketers.org/marketing-foundation-course?utm_source=linkedin&utm_medium=linkedin_bach&utm_campaign=tofu&utm_content=baitest-khoaf",
+            STORAGE_KEY: "tmQuizState"
+        };
+
+        const QUIZ_DATA = [
+            {
+                id: 1,
+                group: "Market & Customer",
+                question: "Một thương hiệu có doanh thu giảm 20% trong 2 tháng liên tiếp. Việc đầu tiên marketer nên làm là gì?",
+                options: [
+                    "Tăng ngân sách quảng cáo để kéo lại doanh số",
+                    "Xác định doanh thu giảm do thị trường, khách hàng, sản phẩm, giá, kênh bán hay truyền thông trước khi chọn giải pháp",
+                    "Làm chương trình giảm giá để kích cầu ngay"
+                ],
+                correctAnswer: 1,
+                explanation: "Doanh thu giảm là kết quả cuối cùng, chưa cho biết nguyên nhân nằm ở đâu. Nếu vội tăng ads hoặc giảm giá, bạn có thể đang xử lý phần ngọn trong khi vấn đề thật nằm ở sản phẩm, tệp khách hàng, kênh bán hoặc cạnh tranh."
+            },
+            {
+                id: 2,
+                group: "Market & Customer",
+                question: "Một thương hiệu muốn bán dòng bình giữ nhiệt mới cho người đi làm văn phòng. Thông tin nào hữu ích nhất để quyết định có nên theo đuổi nhóm này không?",
+                options: [
+                    "Nhóm này chiếm tỷ lệ lớn trong độ tuổi 22–30",
+                    "Họ đang dùng loại bình nào, gặp bất tiện gì, sẵn sàng trả bao nhiêu và điều gì khiến họ đổi sang sản phẩm mới",
+                    "Họ thường dùng Facebook, TikTok và Instagram"
+                ],
+                correctAnswer: 1,
+                explanation: "Độ tuổi hay kênh sử dụng chỉ cho biết nhóm khách hàng đang ở đâu. Để quyết định có nên phục vụ họ hay không, marketer cần hiểu nhu cầu, vấn đề, hành vi mua và khả năng chi trả của họ."
+            },
+            {
+                id: 3,
+                group: "Consumer Insight",
+                question: "Đâu là một customer insight đúng nghĩa?",
+                options: [
+                    "72% khách hàng của thương hiệu là nữ, 23–30 tuổi",
+                    "Khách hàng muốn một sản phẩm chất lượng nhưng giá hợp lý",
+                    "Người đi làm trẻ muốn chăm sóc bản thân sau giờ làm, nhưng thường bỏ dở vì thấy việc đó tốn thời gian và quá nhiều lựa chọn"
+                ],
+                correctAnswer: 2,
+                explanation: "A là dữ liệu nhân khẩu học. B mới dừng ở một nhu cầu chung. C chỉ ra tension thật sự: khách hàng có mong muốn nhưng đang bị một rào cản khiến họ chưa hành động."
+            },
+            {
+                id: 4,
+                group: "Targeting & Strategy",
+                question: "Một sản phẩm có thể bán cho sinh viên, nhân viên văn phòng và phụ huynh có con nhỏ. Cách chọn target hợp lý nhất là gì?",
+                options: [
+                    "Chọn nhóm đông nhất để tối đa reach",
+                    "Chọn nhóm có nhu cầu rõ, tiềm năng đủ lớn, có thể tiếp cận và phù hợp với năng lực thương hiệu",
+                    "Chọn nhóm có nhiều follower nhất trên fanpage hiện tại"
+                ],
+                correctAnswer: 1,
+                explanation: "Target không đơn giản là nhóm đông nhất. Một nhóm khách hàng chỉ đáng ưu tiên khi họ có nhu cầu đủ rõ, có khả năng tạo tăng trưởng và brand có lý do hợp lý để phục vụ họ tốt hơn đối thủ."
+            },
+            {
+                id: 5,
+                group: "Targeting & Strategy",
+                question: "Một brand bị khách hàng nhận xét là \"không khác gì các brand khác\". Marketer nên ưu tiên làm gì?",
+                options: [
+                    "Đổi logo và visual để thương hiệu trông mới hơn",
+                    "Xác định giá trị khách hàng cần, điểm đối thủ đang bỏ trống và lý do khách hàng nên chọn brand mình",
+                    "Book KOL lớn để tăng nhận diện trước"
+                ],
+                correctAnswer: 1,
+                explanation: "Khác biệt không chỉ nằm ở logo hay độ nhận diện. Brand cần có một giá trị đủ rõ để khách hàng hiểu vì sao họ nên chọn mình thay vì các lựa chọn khác."
+            },
+            {
+                id: 6,
+                group: "Marketing Mix",
+                question: "Một thương hiệu muốn định vị là \"lựa chọn cao cấp nhưng dễ tiếp cận\". Điều nào cho thấy định vị này đang được triển khai đúng?",
+                options: [
+                    "Chỉ dùng hình ảnh sang trọng trong social post",
+                    "Giá, trải nghiệm sản phẩm, điểm bán và thông điệp đều khiến khách hàng cảm nhận được chất lượng cao nhưng không quá xa cách",
+                    "Tăng giá sản phẩm cao hơn đối thủ"
+                ],
+                correctAnswer: 1,
+                explanation: "Định vị chỉ có ý nghĩa khi được thể hiện nhất quán qua toàn bộ trải nghiệm khách hàng, không chỉ ở hình ảnh truyền thông hoặc mức giá."
+            },
+            {
+                id: 7,
+                group: "Marketing Mix",
+                question: "Khi quyết định giá bán cho một sản phẩm mới, marketer không nên chỉ dựa vào yếu tố nào?",
+                options: [
+                    "Mức giá khách hàng sẵn sàng trả",
+                    "Chi phí, đối thủ cạnh tranh và định vị mong muốn",
+                    "Mức giá mà đội ngũ nội bộ cảm thấy \"nghe hợp lý\""
+                ],
+                correctAnswer: 2,
+                explanation: "Giá bán cần phản ánh giá trị khách hàng cảm nhận, chi phí, đối thủ và định vị thương hiệu. Cảm nhận chủ quan của nội bộ không phải là căn cứ đủ để đưa ra quyết định giá."
+            },
+            {
+                id: 8,
+                group: "Marketing Mix",
+                question: "Một thương hiệu có sản phẩm tốt nhưng khách hàng vẫn không mua vì khó tìm nơi bán. Vấn đề này chủ yếu nằm ở đâu trong Marketing Mix?",
+                options: [
+                    "Product",
+                    "Place",
+                    "Promotion"
+                ],
+                correctAnswer: 1,
+                explanation: "Sản phẩm có thể tốt và truyền thông có thể hiệu quả, nhưng khách hàng vẫn không mua nếu không thể tìm thấy sản phẩm ở đúng nơi, đúng thời điểm hoặc đúng kênh họ thường mua sắm."
+            },
+            {
+                id: 9,
+                group: "Integrated Marketing Communication",
+                question: "Một campaign có KOL, social content, paid ads, landing page và activation offline. Cách làm nào đúng nhất?",
+                options: [
+                    "Mỗi kênh làm một ý tưởng riêng để tránh nhàm chán",
+                    "Các kênh cùng phục vụ một mục tiêu chung, nhưng mỗi kênh có vai trò riêng theo hành trình khách hàng",
+                    "Dồn toàn bộ ngân sách cho kênh có reach cao nhất"
+                ],
+                correctAnswer: 1,
+                explanation: "IMC không có nghĩa là mọi kênh phải nói giống hệt nhau. Điều quan trọng là các điểm chạm phải được kết nối để dẫn khách hàng từ nhận biết đến cân nhắc và hành động."
+            },
+            {
+                id: 10,
+                group: "Digital & Data",
+                question: "Một quảng cáo có CTR cao nhưng tỷ lệ điền form thấp. Điều marketer nên kiểm tra đầu tiên là gì?",
+                options: [
+                    "Sự khớp nhau giữa thông điệp quảng cáo, offer và nội dung landing page",
+                    "Tăng ngân sách để có thêm traffic",
+                    "Đăng nhiều bài social hơn để tăng nhận diện"
+                ],
+                correctAnswer: 0,
+                explanation: "CTR cao cho thấy quảng cáo đủ hấp dẫn để kéo người vào xem. Nhưng nếu họ không để lại thông tin, vấn đề có thể nằm ở việc kỳ vọng tạo bởi ads không khớp với offer hoặc trải nghiệm trên landing page."
+            },
+            {
+                id: 11,
+                group: "Digital & Data",
+                question: "Campaign A có CTR cao hơn Campaign B, nhưng Campaign B mang về nhiều lead chất lượng hơn với chi phí thấp hơn. Nên ưu tiên campaign nào?",
+                options: [
+                    "Campaign A vì CTR cao hơn",
+                    "Campaign B vì chỉ số cuối phễu và chất lượng lead tốt hơn",
+                    "Chạy đều cả hai vì không nên tắt bất kỳ campaign nào"
+                ],
+                correctAnswer: 1,
+                explanation: "CTR chỉ phản ánh khả năng kéo click. Nếu mục tiêu là tạo lead, marketer cần ưu tiên chỉ số gần với kết quả kinh doanh hơn như số lead, chất lượng lead và chi phí tạo lead."
+            },
+            {
+                id: 12,
+                group: "Digital & Data",
+                question: "Mục tiêu của campaign là kéo người đăng ký tham gia webinar. KPI nào nên được ưu tiên nhất?",
+                options: [
+                    "Tổng lượt reach",
+                    "Tổng lượt tương tác",
+                    "Số lượt đăng ký hoàn tất và chi phí trên mỗi lượt đăng ký"
+                ],
+                correctAnswer: 2,
+                explanation: "Reach và tương tác chỉ là chỉ số hỗ trợ. Khi mục tiêu là đăng ký webinar, KPI chính cần phản ánh trực tiếp số người hoàn thành đăng ký và chi phí để tạo ra kết quả đó."
+            },
+            {
+                id: 13,
+                group: "AI for Marketing",
+                question: "Cách dùng AI nào đúng nhất khi nghiên cứu khách hàng?",
+                options: [
+                    "Nhờ AI tạo customer persona rồi dùng ngay để lập kế hoạch",
+                    "Dùng AI để tổng hợp dữ liệu, nhóm phản hồi, tìm pattern và xây giả thuyết; sau đó kiểm chứng lại bằng nguồn thực tế",
+                    "Nhờ AI chọn luôn target audience, thông điệp và kênh chạy ads"
+                ],
+                correctAnswer: 1,
+                explanation: "AI có thể giúp marketer xử lý thông tin nhanh hơn, nhưng không thể thay thế việc kiểm chứng dữ liệu và đưa ra quyết định dựa trên bối cảnh thật của thị trường, khách hàng và thương hiệu."
+            },
+            {
+                id: 14,
+                group: "Marketing Plan",
+                question: "Trong một case interview về ra mắt sản phẩm mới, bạn nên bắt đầu từ đâu?",
+                options: [
+                    "Đề xuất ngay KOL, content angle và kênh chạy ads",
+                    "Làm rõ bối cảnh, mục tiêu kinh doanh, khách hàng mục tiêu và vấn đề cần giải trước",
+                    "Liệt kê toàn bộ framework bạn biết như SWOT, 4P, STP và funnel"
+                ],
+                correctAnswer: 1,
+                explanation: "KOL, content hay ads chỉ là phần triển khai. Khi chưa xác định được bài toán cần giải, mọi đề xuất phía sau đều dễ trở thành ý tưởng rời rạc và khó chứng minh tính phù hợp."
+            },
+            {
+                id: 15,
+                group: "Marketing Plan",
+                question: "Đâu là trình tự hợp lý nhất để xây một Marketing Plan?",
+                options: [
+                    "Chọn kênh → làm content → chạy ads → xem kết quả",
+                    "Bối cảnh & mục tiêu → khách hàng → chiến lược → hoạt động/kênh → ngân sách & KPI → đo lường, tối ưu",
+                    "Làm logo → lên social calendar → tìm KOL → chạy promotion"
+                ],
+                correctAnswer: 1,
+                explanation: "Kênh, content hay ads chỉ là cách triển khai. Khi chưa rõ mục tiêu, khách hàng và chiến lược, những quyết định ở phần execution rất dễ dựa vào cảm giác."
+            }
+        ];
+
+        const RESULT_RANGES = [
+            {
+                min: 0,
+                max: 5,
+                title: "Bạn đang làm Marketing theo đầu việc, chưa có một nền tảng đủ chắc",
+                body: "Bạn có thể đã biết một vài công việc như viết content, chạy ads, làm social hoặc hỗ trợ campaign. Nhưng khi gặp một bài toán thật, phản xạ có thể vẫn là: \"Làm content gì?\", \"Chạy kênh nào?\", \"Có nên giảm giá không?\"\n\nKhoảng trống chính không nằm ở việc bạn chưa biết đủ tool. Bạn đang thiếu cách nhìn từ vấn đề kinh doanh, khách hàng, chiến lược, hoạt động đến chỉ số đo lường.",
+                gap: "Tư duy Marketing từ thị trường đến kế hoạch",
+                gapText: "Trong Marketing Foundation, bạn sẽ đi từ Market Analysis, Consumer Insight, Targeting, Marketing Mix đến IMC, Digital, Data và thực hành Marketing Plan thay vì học từng đầu việc rời rạc.",
+                cta: "Xem lộ trình xây nền tảng Marketing"
+            },
+            {
+                min: 6,
+                max: 9,
+                title: "Bạn đã biết một vài khái niệm, nhưng kiến thức vẫn đang rời rạc",
+                body: "Bạn có thể đã nghe về insight, STP, 4P, funnel, KPI hay digital marketing. Nhưng khi phải tự lên một plan hoặc trả lời case, các mảnh kiến thức này chưa chắc đã kết nối được với nhau.\n\nĐây là khoảng trống khiến nhiều bạn học khá nhiều nhưng vẫn lúng túng khi được hỏi: \"Em sẽ bắt đầu phân tích từ đâu?\", \"Vì sao lại chọn khách hàng này?\" hoặc \"Kênh này đóng vai trò gì trong kế hoạch?\"",
+                gap: "Logic nối khách hàng, chiến lược và execution",
+                gapText: "Marketing Foundation giúp bạn hệ thống hóa những phần kiến thức này thành một thought flow hoàn chỉnh: từ hiểu khách hàng đến chọn chiến lược, triển khai và đo lường.",
+                cta: "Xem cách khóa học hệ thống hóa tư duy Marketing"
+            },
+            {
+                min: 10,
+                max: 12,
+                title: "Bạn đã có nền, nhưng cần luyện cách biến kiến thức thành quyết định thực tế",
+                body: "Bạn đã có phản xạ khá đúng khi gặp các tình huống Marketing: biết cần nhìn khách hàng, mục tiêu, chiến lược và data trước khi chọn tactics.\n\nKhoảng trống còn lại thường là biến suy nghĩ đó thành một Marketing Plan đủ chặt chẽ: biết ưu tiên gì trước, chọn KPI nào và giải thích được vì sao mình ra quyết định như vậy.",
+                gap: "Lập Marketing Plan và bảo vệ quyết định",
+                gapText: "Khóa học có các bài thực hành giúp bạn xây Marketing Plan, phân bổ ngân sách, chọn KPI và trình bày kế hoạch cho một bài toán kinh doanh cụ thể.",
+                cta: "Xem cách luyện Marketing Plan qua case thực tế"
+            },
+            {
+                min: 13,
+                max: 15,
+                title: "Bạn có nền tảng tốt. Câu hỏi tiếp theo là: bạn đã có bằng chứng mình làm được chưa?",
+                body: "Bạn đã có logic Marketing tương đối rõ. Nhưng để đi xin việc, chuyển ngành hoặc tiến lên vai trò cao hơn, kiến thức thôi chưa đủ.\n\nBạn vẫn cần hệ thống hóa tư duy, thực hành ra plan và có đầu ra cụ thể để chứng minh: \"Mình không chỉ biết framework. Mình biết cách dùng framework để ra quyết định.\"",
+                gap: "Biến tư duy thành năng lực có thể chứng minh",
+                gapText: "Marketing Foundation giúp bạn củng cố những điểm mù, ứng dụng AI đúng cách và hoàn thiện một Marketing Plan có thể sử dụng trong portfolio hoặc phỏng vấn.",
+                cta: "Xem chương trình học và đầu ra sau khóa"
+            }
+        ];
+
+        const GAP_DIAGNOSTICS = {
+            "Market & Customer": "Market & Consumer Understanding\n\nKhi chưa hiểu rõ thị trường và khách hàng đang gặp vấn đề gì, các quyết định về target, thông điệp, sản phẩm hay kênh triển khai đều dễ trở thành phỏng đoán.",
+            "Targeting & Strategy": "Targeting, Positioning & Marketing Mix\n\nBiết khách hàng là ai chưa đủ. Bạn cần biết nên ưu tiên nhóm nào, tạo giá trị gì và triển khai định vị đó qua sản phẩm, giá, kênh bán và truyền thông.",
+            "Marketing Mix": "Marketing Mix & Integrated Marketing Communication\n\nNhiều hoạt động không tự tạo thành một kế hoạch. Điều quan trọng là các quyết định về sản phẩm, giá, kênh và truyền thông phải cùng phục vụ một chiến lược chung.",
+            "Digital & Data": "Digital & Data-driven Marketing\n\nReach, engagement hay CTR chỉ là một phần của bức tranh. Marketer cần biết đọc hành trình chuyển đổi để tìm đúng điểm đang làm khách hàng rơi rụng.",
+            "AI & Marketing Plan": "AI Application & Marketing Planning\n\nAI có thể giúp tăng tốc nghiên cứu, phân tích và triển khai. Nhưng bạn vẫn cần tư duy Marketing để đặt đúng câu hỏi, kiểm chứng thông tin và ra quyết định đúng thứ tự."
+        };
+
+        // ============================================
+        // STATE MANAGEMENT
+        // ============================================
+        let state = {
+            currentQuestion: 0,
+            answers: [],
+            submitted: false,
+            screen: 'hero' // hero, intro, quiz, result
+        };
+
+        function saveState() {
+            localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(state));
+        }
+
+        function loadState() {
+            const saved = localStorage.getItem(CONFIG.STORAGE_KEY);
+            if (saved) {
+                state = JSON.parse(saved);
+            }
+        }
+
+        function resetQuiz() {
+            state = {
+                currentQuestion: 0,
+                answers: [],
+                submitted: false,
+                screen: 'hero'
+            };
+            saveState();
+            document.getElementById('resetBtn').style.display = 'none';
+            showScreen('hero');
+        }
+
+        // ============================================
+        // UI FUNCTIONS
+        // ============================================
+        function goToCourse() {
+            window.location.href = CONFIG.COURSE_URL;
+        }
+
+        function showScreen(screen) {
+            document.getElementById('hero').classList.add('hidden');
+            document.getElementById('intro').classList.add('hidden');
+            document.getElementById('quiz').classList.add('hidden');
+            document.getElementById('result').classList.add('hidden');
+            document.getElementById('ctaSection').classList.add('hidden');
+            document.getElementById('answers').classList.add('hidden');
+            document.getElementById('footer').style.display = 'none';
+            document.getElementById('resetBtn').style.display = 'none';
+
+            switch(screen) {
+                case 'hero':
+                    document.getElementById('hero').classList.remove('hidden');
+                    break;
+                case 'intro':
+                    document.getElementById('intro').classList.remove('hidden');
+                    break;
+                case 'quiz':
+                    document.getElementById('quiz').classList.remove('hidden');
+                    renderQuestion();
+                    break;
+                case 'result':
+                    document.getElementById('result').classList.remove('hidden');
+                    document.getElementById('ctaSection').classList.remove('hidden');
+                    document.getElementById('answers').classList.remove('hidden');
+                    document.getElementById('footer').style.display = 'block';
+                    document.getElementById('resetBtn').style.display = 'block';
+                    renderResult();
+                    break;
+            }
+            state.screen = screen;
+            saveState();
+            window.scrollTo(0, 0);
+        }
+
+        function startQuiz() {
+            state.currentQuestion = 0;
+            state.answers = [];
+            state.submitted = false;
+            state.answers = new Array(QUIZ_DATA.length).fill(null);
+            saveState();
+            showScreen('intro');
+        }
+
+        function startFirstQuestion() {
+            showScreen('quiz');
+        }
+
+        function renderQuestion() {
+            const q = QUIZ_DATA[state.currentQuestion];
+            const progress = state.currentQuestion + 1;
+            
+            document.getElementById('progressText').textContent = `Câu ${progress} / 15`;
+            document.getElementById('progressFill').style.width = (progress / 15 * 100) + '%';
+
+            let html = `
+                <div class="question-group">${q.group}</div>
+                <div class="question-number">Câu ${progress}</div>
+                <div class="question-title">${q.question}</div>
+                <div class="options">
+            `;
+
+            q.options.forEach((opt, idx) => {
+                const isSelected = state.answers[state.currentQuestion] === idx;
+                html += `
+                    <div class="option ${isSelected ? 'selected' : ''}" onclick="selectOption(${idx})">
+                        <input type="radio" id="opt${idx}" name="answer" value="${idx}" ${isSelected ? 'checked' : ''}>
+                        <label for="opt${idx}">${String.fromCharCode(65 + idx)}. ${opt}</label>
+                    </div>
+                `;
+            });
+
+            html += '</div>';
+            document.getElementById('questionContent').innerHTML = html;
+
+            // Update nav buttons
+            document.getElementById('btnPrev').disabled = state.currentQuestion === 0;
+            document.getElementById('btnNext').textContent = state.currentQuestion === QUIZ_DATA.length - 1 ? 'Xem kết quả của tôi' : 'Tiếp tục →';
+        }
+
+        function selectOption(idx) {
+            state.answers[state.currentQuestion] = idx;
+            saveState();
+            renderQuestion();
+        }
+
+        function nextQuestion() {
+            if (state.answers[state.currentQuestion] === null) {
+                alert('Vui lòng chọn một đáp án');
+                return;
+            }
+
+            if (state.currentQuestion < QUIZ_DATA.length - 1) {
+                state.currentQuestion++;
+                saveState();
+                renderQuestion();
+            } else {
+                submitQuiz();
+            }
+        }
+
+        function prevQuestion() {
+            if (state.currentQuestion > 0) {
+                state.currentQuestion--;
+                saveState();
+                renderQuestion();
+            }
+        }
+
+        function submitQuiz() {
+            state.submitted = true;
+            saveState();
+            showScreen('result');
+        }
+
+        function calculateScore() {
+            let score = 0;
+            QUIZ_DATA.forEach((q, idx) => {
+                if (state.answers[idx] === q.correctAnswer) {
+                    score++;
+                }
+            });
+            return score;
+        }
+
+        function getGroupScores() {
+            const groups = {};
+            const groupMap = {
+                'Market & Customer': [0, 1, 2],
+                'Targeting & Strategy': [3, 4, 5],
+                'Marketing Mix': [6, 7, 8],
+                'Digital & Data': [9, 10, 11],
+                'AI & Marketing Plan': [12, 13, 14]
+            };
+
+            for (const [groupName, indices] of Object.entries(groupMap)) {
+                let correct = 0;
+                indices.forEach(idx => {
+                    if (state.answers[idx] === QUIZ_DATA[idx].correctAnswer) {
+                        correct++;
+                    }
+                });
+                groups[groupName] = { correct, total: indices.length, indices };
+            }
+
+            return groups;
+        }
+
+        function getWeakestGroups() {
+            const groups = getGroupScores();
+            const sorted = Object.entries(groups)
+                .sort((a, b) => {
+                    const scoreA = a[1].correct / a[1].total;
+                    const scoreB = b[1].correct / b[1].total;
+                    return scoreA - scoreB;
+                })
+                .slice(0, 2);
+
+            return sorted.map(([name, _]) => name);
+        }
+
+        function renderResult() {
+            const score = calculateScore();
+            const weakestGroups = getWeakestGroups();
+            
+            document.getElementById('finalScore').textContent = `${score}/15`;
+
+            let resultInfo = RESULT_RANGES.find(r => score >= r.min && score <= r.max);
+            if (!resultInfo) resultInfo = RESULT_RANGES[0];
+
+            let html = `
+                <h2 class="result-title">${resultInfo.title}</h2>
+                <p class="result-body">${resultInfo.body.split('\n').join('<br>')}</p>
+                <div class="gap-card">
+                    <div class="gap-card-title">Bạn nên bù trước: ${resultInfo.gap}</div>
+                    <div class="gap-card-text">${resultInfo.gapText}</div>
+                </div>
+                <div class="result-cta">
+                    <button class="cta-primary" onclick="goToCourse()" style="width: 100%; margin-bottom: 12px;">${resultInfo.cta}</button>
+                    <button class="btn-secondary" onclick="resetQuiz()" style="width: 100%;">← Quay lại làm lại quiz</button>
+                </div>
+            `;
+
+            // Add weak group diagnostics
+            if (weakestGroups.length > 0) {
+                html += '<h3 style="font-size: 18px; font-weight: 700; margin-top: var(--spacing-xl); margin-bottom: var(--spacing-lg);">Bạn nên bù nền tảng ở đâu?</h3>';
+                weakestGroups.forEach(groupName => {
+                    if (GAP_DIAGNOSTICS[groupName]) {
+                        html += `
+                            <div class="gap-card" style="margin-bottom: var(--spacing-lg);">
+                                <div class="gap-card-text">${GAP_DIAGNOSTICS[groupName]}</div>
+                            </div>
+                        `;
+                    }
+                });
+            }
+
+            document.getElementById('resultContent').innerHTML = html;
+            renderAnswers();
+        }
+
+        function renderAnswers() {
+            let html = '';
+            
+            QUIZ_DATA.forEach((q, idx) => {
+                const isCorrect = state.answers[idx] === q.correctAnswer;
+                const statusClass = isCorrect ? 'correct' : 'incorrect';
+                const statusText = isCorrect ? 'Bạn chọn đúng' : `Đáp án đúng là ${String.fromCharCode(65 + q.correctAnswer)}`;
+                const statusIcon = isCorrect ? '✓' : '✕';
+
+                html += `
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <div class="accordion-title">
+                                Câu ${idx + 1}. ${q.question.substring(0, 50)}...
+                            </div>
+                            <div>
+                                <span class="accordion-status ${statusClass}">${statusIcon} ${statusText}</span>
+                                <div class="accordion-icon">▼</div>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="answer-question">${q.question}</div>
+                            <div class="answer-correct">
+                                <div class="answer-correct-label">Đáp án đúng</div>
+                                <div class="answer-correct-text">${String.fromCharCode(65 + q.correctAnswer)}. ${q.options[q.correctAnswer]}</div>
+                            </div>
+                            <div class="answer-explanation">
+                                <div class="answer-explanation-label">Vì sao?</div>
+                                <div>${q.explanation}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            document.getElementById('answersContent').innerHTML = html;
+        }
+
+        function toggleAccordion(el) {
+            el.parentElement.classList.toggle('open');
+        }
+
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // ============================================
+        // INIT
+        // ============================================
+        window.addEventListener('DOMContentLoaded', () => {
+            loadState();
+            if (state.submitted && state.screen === 'result') {
+                showScreen('result');
+            } else {
+                showScreen('hero');
+            }
+        });
+    </script>
+</body>
+</html>
